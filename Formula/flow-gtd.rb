@@ -13,14 +13,16 @@ class FlowGtd < Formula
 
   desc "Local-First, AI-Augmented GTD CLI for Senior Engineering Managers"
   homepage "https://github.com/jasonhotsauce/flow-gtd"
-  url "https://github.com/jasonhotsauce/flow-gtd/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "25a68a8634d7b9e4608fe4d12eb26f3b22b311856e4bfbe45baa919640fb1ee4"
+  url "https://github.com/jasonhotsauce/flow-gtd/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "08925c39eb94282b27cab4261b705670ec3cbf85545bae7ba13c706cfe98d4e5"
   license "MIT"
 
   depends_on "python@3.11"
 
   def install
-    # Create virtualenv with pip using ensurepip (works even if base Python lacks pip)
+    # Manual virtualenv creation instead of virtualenv_create() helper
+    # Reason: Homebrew Python may not have pip module available (especially on Apple Silicon)
+    # The ensurepip bootstrap ensures pip is available before installing dependencies
     system "python3.11", "-m", "venv", libexec
     system libexec/"bin/python", "-m", "ensurepip", "--upgrade"
     system libexec/"bin/pip", "install", "--upgrade", "pip"
@@ -48,6 +50,6 @@ class FlowGtd < Formula
   end
 
   test do
-    assert_match "flow-gtd", shell_output("#{bin}/flow --version")
+    assert_match "flow-gtd 0.1.1", shell_output("#{bin}/flow --version")
   end
 end
