@@ -13,8 +13,8 @@ class FlowGtd < Formula
 
   desc "Local-First, AI-Augmented GTD CLI for Senior Engineering Managers"
   homepage "https://github.com/jasonhotsauce/flow-gtd"
-  url "https://github.com/jasonhotsauce/flow-gtd/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "08925c39eb94282b27cab4261b705670ec3cbf85545bae7ba13c706cfe98d4e5"
+  url "https://github.com/jasonhotsauce/flow-gtd/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "a412c916ec3b58da7739ef9a6c889735d09722f151f478c6ae0c2be2fc012ebf"
   license "MIT"
 
   depends_on "python@3.11"
@@ -45,11 +45,11 @@ class FlowGtd < Formula
         flow
       
       Data is stored locally in:
-        ~/Library/Application Support/flow-gtd/
+        ~/.flow/data/
     EOS
   end
 
   test do
-    assert_match "flow-gtd 0.1.1", shell_output("#{bin}/flow --version")
+    assert_match "flow-gtd 0.1.2", shell_output("#{bin}/flow --version")
   end
 end
