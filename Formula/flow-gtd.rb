@@ -13,8 +13,8 @@ class FlowGtd < Formula
 
   desc "Local-First, AI-Augmented GTD CLI for Senior Engineering Managers"
   homepage "https://github.com/jasonhotsauce/flow-gtd"
-  url "https://github.com/jasonhotsauce/flow-gtd/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "a412c916ec3b58da7739ef9a6c889735d09722f151f478c6ae0c2be2fc012ebf"
+  url "https://github.com/jasonhotsauce/flow-gtd/archive/refs/tags/v0.1.3.tar.gz"
+  sha256 "d86e34cea4b154730c7b30d2c82d7049623f364c8d7305f12c55100308f8703b"
   license "MIT"
 
   depends_on "python@3.11"
@@ -50,6 +50,6 @@ class FlowGtd < Formula
   end
 
   test do
-    assert_match "flow-gtd 0.1.2", shell_output("#{bin}/flow --version")
+    assert_match "flow-gtd 0.1.3", shell_output("#{bin}/flow --version")
   end
 end
