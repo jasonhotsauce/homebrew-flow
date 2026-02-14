@@ -7,14 +7,13 @@
 #   3. Users install with:
 #      brew tap jasonhotsauce/flow
 #      brew install flow-gtd
-
 class FlowGtd < Formula
   include Language::Python::Virtualenv
 
   desc "Local-First, AI-Augmented GTD CLI for Senior Engineering Managers"
   homepage "https://github.com/jasonhotsauce/flow-gtd"
-  url "https://github.com/jasonhotsauce/flow-gtd/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "bdb2325455bfffd7892765e74ac31958104df023d3b9917f0c2d5437614966ec"
+  url "https://github.com/jasonhotsauce/flow-gtd/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "9eab9a9a0de2b646c8325b142a2a5e1e3c884951de9e7d6cb8935ee63e4545df"
   license "MIT"
 
   depends_on "python@3.11"
@@ -26,10 +25,10 @@ class FlowGtd < Formula
     system "python3.11", "-m", "venv", libexec
     system libexec/"bin/python", "-m", "ensurepip", "--upgrade"
     system libexec/"bin/pip", "install", "--upgrade", "pip"
-    
+
     # Install the package (reads dependencies from pyproject.toml)
     system libexec/"bin/pip", "install", buildpath
-    
+
     # Symlink the flow command to bin
     bin.install_symlink libexec/"bin/flow"
   end
@@ -37,19 +36,19 @@ class FlowGtd < Formula
   def caveats
     <<~EOS
       Flow GTD requires an LLM API key for AI features.
-      
+
       Set up your environment:
         export FLOW_GEMINI_API_KEY="your-api-key"
-      
+
       Or run the onboarding wizard:
         flow
-      
+
       Data is stored locally in:
         ~/.flow/data/
     EOS
   end
 
   test do
-    assert_match "flow-gtd 0.1.4", shell_output("#{bin}/flow --version")
+    assert_match "flow-gtd 0.1.5", shell_output("#{bin}/flow --version")
   end
 end
