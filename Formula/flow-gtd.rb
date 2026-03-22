@@ -7,13 +7,14 @@
 #   3. Users install with:
 #      brew tap jasonhotsauce/flow
 #      brew install flow-gtd
+
 class FlowGtd < Formula
   include Language::Python::Virtualenv
 
   desc "Local-First, AI-Augmented GTD CLI for Senior Engineering Managers"
   homepage "https://github.com/jasonhotsauce/flow-gtd"
-  url "https://github.com/jasonhotsauce/flow-gtd/archive/refs/tags/v0.7.1.tar.gz"
-  sha256 "225ba2545bb10cf387a555a5a32e70be8b0aa0619402d15c10065cc124fe9659"
+  url "https://github.com/jasonhotsauce/flow-gtd/archive/refs/tags/v0.7.2.tar.gz"
+  sha256 "f36798232dce0ce1423fc9c9e8651492749568bb51dd330ecd4bef19da9af8fd"
   license "MIT"
 
   depends_on "python@3.11"
@@ -49,6 +50,6 @@ class FlowGtd < Formula
   end
 
   test do
-    assert_match "flow-gtd 0.7.1", shell_output("#{bin}/flow --version")
+    assert_match "flow-gtd 0.7.2", shell_output("#{bin}/flow --version")
   end
 end
