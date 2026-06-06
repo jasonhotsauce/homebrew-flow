@@ -1,6 +1,6 @@
 cask "flow-gtd" do
   version "0.7.4"
-  sha256 "8f6cf74c65132341b9f6a1fe6d88465a573b4315b6d8c543616c8f04cfbd9dfa"
+  sha256 "9c50095b7f8b1d7cf318fa433bb353b5afcddbb087b3294497ecc9e3c3fa9291"
 
   url "https://github.com/jasonhotsauce/flow-gtd/releases/download/v#{version}/Flow-#{version}-macos-arm64.zip"
   name "Flow GTD"
